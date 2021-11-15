@@ -3,6 +3,7 @@
 # Create Time: 11/09 2021
 # Author: Yunquan (Clooney) Gu
 import logging
+import re
 import sys
 from pprint import pformat
 
@@ -61,3 +62,21 @@ def init_logging():
         handlers=[{"sink": sys.stdout, "level": logging.INFO, "format": format_record}]
     )
     logger.add('./log/runtime-{time}.log', rotation='1 week', retention='30 days')
+
+
+# TWITTER API
+API_KEY = "hb1H3xhDdGSTOwRrsrWdFv66i"
+API_KEY_SECRET = "YOVX9yZunrXbSEYfMbvmmKtbSHc2gYbel8UqGrdSdsG01ktFWS"
+BEARER_TOKEN = "AAAAAAAAAAAAAAAAAAAAAELrVgEAAAAAyplOHaQV5E0%2FAmJoTE%2BbEvO1xdA%3Dk4AV10N3vsI1fNPDnGB7G2eaOlWTchuLA8Po36wWRLSQtLn1gH"
+
+# Coin query in twitter seach
+COIN_QUERY = ['coin', 'token', 'crypto', 'metaverse', 'defi', 'nft', 'dao', 'bitcoin', 'eth', 'binance']
+
+# Regex patter to retrieve information
+COIN_PATTERN = re.compile(r"[$][a-zA-Z]+")
+
+# Firebase Certificate File
+CERTIFICATE_FILE = './app/moonshot-ccfe7-firebase-adminsdk-eb11p-969fc7457f.json'
+
+# Firebase database url
+FIREBASE_DATABASE_URL = 'https://moonshot-ccfe7-default-rtdb.firebaseio.com/'
